@@ -1,0 +1,645 @@
+/* ==========================================================================
+   DIRECTIONLESS DESIGN SYSTEM — 4-ACT PROGRESSIVE PHILOSOPHY
+   Each act encodes a distinct emotional state through visual language.
+   Acts are applied via [data-act] on section wrappers.
+
+   ORDER: industrial → neo → soft → pure
+   EMOTIONAL ARC: tense → loud → calm → clear
+   ========================================================================== */
+
+:root {
+  --ppnm: 'PPNeueMontreal', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease-act: 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-act-in: 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-act-out: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   ACT I — INDUSTRIAL BRUTALISM (hero.html)
+   Tense / Maximalist / Chaotic
+   ========================================================================== */
+[data-act="industrial"] {
+  --act-bg: #F4F4F0;
+  --act-ink: #050505;
+  --act-hazard: #E61919;
+  --act-font-display: 'PPNeueMontreal-Bold', var(--ppnm);
+  --act-font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-act="industrial"] {
+  background: var(--act-bg);
+  color: var(--act-ink);
+}
+
+/* — SCANLINE OVERLAY on dark inset areas — */
+[data-act="industrial"] .illustration-overlay {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0,0,0,0.06) 2px,
+    rgba(0,0,0,0.06) 4px
+  );
+}
+
+/* — GLOBAL NOISE TEXTURE — */
+[data-act="industrial"] .hero-section::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+/* — TELEMETRY OVERLAY (top-left corner tags) — */
+[data-act="industrial"] .hero-top_layout::before {
+  content: '[ DIRECTIONLESS ]  ///  REV 2.6  ///  UNIT D-01';
+  position: absolute;
+  top: var(--sitepadding--pc);
+  left: var(--sitepadding--pc);
+  z-index: 130;
+  font-family: var(--act-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--act-ink);
+  opacity: 0.35;
+}
+
+[data-act="industrial"] .hero-top_layout::after {
+  content: '>>>  STATUS: ACTIVE  >>>  SIG: STRONG';
+  position: absolute;
+  top: var(--sitepadding--pc);
+  right: var(--sitepadding--pc);
+  z-index: 130;
+  font-family: var(--act-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--act-hazard);
+  opacity: 0.5;
+  text-align: right;
+}
+
+/* — BLUEPRINT GRID on the illustration area — */
+[data-act="industrial"] .hero-illustration_wrapper {
+  background-image:
+    linear-gradient(rgba(5,5,5,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5,5,5,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  border: 2px solid var(--act-ink);
+  position: relative;
+}
+
+/* — CROSSHAIR CORNERS on illustration items — */
+[data-act="industrial"] .hero-illustration_item::before {
+  content: '+';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  font-family: var(--act-font-mono);
+  font-size: 14px;
+  color: var(--act-hazard);
+  font-weight: 700;
+  z-index: 10;
+}
+
+[data-act="industrial"] .hero-illustration_item::after {
+  content: '+';
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  font-family: var(--act-font-mono);
+  font-size: 14px;
+  color: var(--act-hazard);
+  font-weight: 700;
+  z-index: 10;
+}
+
+/* — 2px BORDERS on everything — */
+[data-act="industrial"] .hero-illustration_item {
+  border: 2px solid var(--act-ink);
+}
+
+[data-act="industrial"] .hero-image_directionless {
+  border: 2px solid var(--act-ink);
+  padding: 2px;
+}
+
+[data-act="industrial"] .inner-illustrations_reach-wrapper {
+  border: 2px solid var(--act-ink);
+}
+
+/* — MACRO TYPOGRAPHY — */
+[data-act="industrial"] .sg-text-display,
+[data-act="industrial"] .sg-text-display-italic {
+  font-family: var(--act-font-display);
+  font-size: clamp(4rem, 10vw, 15rem);
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: var(--act-ink);
+}
+
+[data-act="industrial"] .sg-text-body-large {
+  font-family: var(--act-font-display);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--act-ink);
+}
+
+[data-act="industrial"] .sg-text-body-mini {
+  font-family: var(--act-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--act-ink);
+}
+
+/* — THICK DIVIDING RULE under hero top text — */
+[data-act="industrial"] .hero-top_layout {
+  border-bottom: 2px solid var(--act-ink);
+  margin-bottom: 0;
+}
+
+/* — HAZARD ACCENT on specific text items — */
+[data-act="industrial"] [data-hero-text-item]:nth-child(2) {
+  color: var(--act-hazard);
+}
+
+/* — TELEMETRY MARQUEE TICKER — */
+[data-act="industrial"] .telemetry-ticker {
+  position: relative;
+  z-index: 130;
+  overflow: hidden;
+  width: 100%;
+  height: 2em;
+  background: var(--act-ink);
+  color: var(--act-bg);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+[data-act="industrial"] .telemetry-ticker span {
+  display: inline-block;
+  font-family: var(--act-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0 2em;
+  animation: ticker-scroll 20s linear infinite;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   ACT II — NEO-BRUTALISM (dark.html + blue.html)
+   Loud / Organized / Bold Color
+   ========================================================================== */
+[data-act="neo"] {
+  --act-border-width: 4px;
+  --act-border-style: solid;
+  --act-radius: 0;
+}
+
+/* Dark variant */
+[data-act="neo"][data-theme-section="dark"] {
+  --act-bg: #0A0A0A;
+  --act-ink: #EAEAEA;
+  --act-accent: #FF2A2A;
+  --act-accent-secondary: #4AF626;
+  --act-shadow-color: #EAEAEA;
+  --act-surface: #1A1A1A;
+}
+
+/* Blue variant */
+[data-act="neo"][data-theme-section="blue"] {
+  --act-bg: #1B3DE5;
+  --act-ink: #FFFCE1;
+  --act-accent: #FFD400;
+  --act-accent-secondary: #FF6B00;
+  --act-shadow-color: #FFD400;
+  --act-surface: #2A4BEF;
+}
+
+[data-act="neo"] {
+  background-color: var(--act-bg);
+  color: var(--act-ink);
+}
+
+/* — CHUNKY OFFSET SHADOW CARD for dark section text — */
+[data-act="neo"][data-theme-section="dark"] .dark-text_wrapper {
+  background: var(--act-surface);
+  border: var(--act-border-width) var(--act-border-style) var(--act-ink);
+  box-shadow: 8px 8px 0 var(--act-shadow-color);
+  padding: 2em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-act="neo"][data-theme-section="dark"] .dark-text_wrapper:active {
+  box-shadow: 0 0 0 var(--act-shadow-color);
+  transform: translate(8px, 8px);
+}
+
+[data-act="neo"][data-theme-section="dark"] .dark-text_wrapper .sg-text-body-large {
+  color: var(--act-ink);
+  font-family: var(--ppnm);
+  font-weight: 700;
+  font-size: 3em;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* — DRIP BARS get neo-brutalist treatment — */
+[data-act="neo"][data-theme-section="dark"] .drip-bar {
+  background: var(--act-ink);
+  border-left: 1px solid rgba(234, 234, 234, 0.15);
+}
+
+/* — PIXEL TRANSITION blocks — */
+[data-act="neo"][data-theme-section="dark"] .pixel-transition-block {
+  background: var(--act-ink);
+}
+
+/* — NEO CARDS for peace section (blue) — */
+[data-act="neo"][data-theme-section="blue"] .peace-image_wrapper {
+  background: var(--act-surface);
+  border: var(--act-border-width) var(--act-border-style) var(--act-ink);
+  box-shadow: 8px 8px 0 var(--act-shadow-color);
+  border-radius: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-act="neo"][data-theme-section="blue"] .peace-image_wrapper:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--act-shadow-color);
+}
+
+/* — NEO TEXT — */
+[data-act="neo"] .sg-text-body-large,
+[data-act="neo"] .sg-text-body-huge,
+[data-act="neo"] .sg-text-body-mini {
+  color: var(--act-ink);
+}
+
+[data-act="neo"][data-theme-section="blue"] .sg-text-body-large,
+[data-act="neo"][data-theme-section="blue"] .sg-text-body-huge {
+  font-family: var(--ppnm);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* — STICKER / BADGE — */
+[data-act="neo"] .badge {
+  display: inline-block;
+  background: var(--act-accent);
+  color: var(--act-bg);
+  padding: 0.3em 0.8em;
+  font-family: var(--ppnm);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transform: rotate(-6deg);
+}
+
+/* — BOTTOM-HEAVY ASYMMETRY — */
+[data-act="neo"] .push-bottom {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   ACT IIIa — NEO-SOFT BRIDGE (team/delirious content)
+   Calm / Color Recedes / Last Echo of Bold
+   ========================================================================== */
+[data-act="neo-soft"] {
+  --act-bg: #3D5A99;
+  --act-ink: #FFFCE1;
+  --act-accent: #FFB347;
+  --act-accent-secondary: #E89B5A;
+  --act-surface: #4F6FAD;
+  --act-shadow-color: #FFB347;
+  --act-border-width: 2px;
+  --act-radius: 12px;
+  background-color: var(--act-bg);
+  color: var(--act-ink);
+}
+
+[data-act="neo-soft"] .delirious-layout {
+  padding: 4em 0;
+}
+
+[data-act="neo-soft"] .delirious-text_image {
+  background: var(--act-surface);
+  border: var(--act-border-width) solid var(--act-ink);
+  border-radius: var(--act-radius);
+  box-shadow: 4px 4px 0 var(--act-shadow-color);
+  padding: 0.5em;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-act="neo-soft"] .delirious-text_image:hover {
+  transform: translate(-2px, -2px) rotate(0deg);
+  box-shadow: 6px 6px 0 var(--act-shadow-color);
+}
+
+[data-act="neo-soft"] .delirious-image_wrapper {
+  background: var(--act-surface);
+  border-radius: 50%;
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.18),
+    inset -4px -4px 8px rgba(255, 252, 225, 0.08);
+  padding: 1.5em;
+}
+
+[data-act="neo-soft"] .delirious-section {
+  background: var(--act-bg);
+}
+
+[data-act="neo-soft"] .sg-text-body-large,
+[data-act="neo-soft"] .sg-text-body-huge,
+[data-act="neo-soft"] .sg-text-body-small,
+[data-act="neo-soft"] .sg-text-body-mini {
+  color: var(--act-ink);
+}
+
+/* ==========================================================================
+   ACT IV — NEUMORPHISM + SKEUOMORPHISM (grey.html text blocks)
+   Calm / Tactile / Soft
+   ========================================================================== */
+[data-act="soft"] {
+  --act-bg: #E4E9F2;
+  --act-ink: #2C3E50;
+  --act-accent: #7C9EB2;
+  --act-surface: #E4E9F2;
+  --act-shadow-dark: #A3B1C6;
+  --act-shadow-light: #FFFFFF;
+  --act-radius: 20px;
+  --act-font-display: 'PPNeueMontreal-Book', var(--ppnm);
+  --act-font-body: 'PPNeueMontreal-Medium', var(--ppnm);
+}
+
+[data-act="soft"] {
+  background-color: var(--act-bg);
+  color: var(--act-ink);
+}
+
+/* — NEUMORPHIC CARD for each grey-section text block — */
+[data-act="soft"] .grey-section_text {
+  background: var(--act-surface);
+  border-radius: var(--act-radius);
+  padding: 2em 2.5em;
+  box-shadow:
+    10px 10px 20px var(--act-shadow-dark),
+    -10px -10px 20px var(--act-shadow-light);
+  font-family: var(--act-font-display);
+  font-size: 2.75em;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  color: var(--act-ink);
+  max-width: none !important;
+  width: 100%;
+}
+
+/* — NEUMORPHIC (Pressed) variant for the last text — */
+[data-act="soft"] .grey-section_text.grey-section_text-last {
+  box-shadow:
+    inset 8px 8px 16px var(--act-shadow-dark),
+    inset -8px -8px 16px var(--act-shadow-light);
+  color: var(--act-accent);
+}
+
+/* — NEUMORPHIC IMAGE WELL for but... image — */
+[data-act="soft"] .grey-illustrations_but {
+  background: var(--act-surface);
+  border-radius: var(--act-radius);
+  padding: 1.5em;
+  box-shadow:
+    6px 6px 12px var(--act-shadow-dark),
+    -6px -6px 12px var(--act-shadow-light);
+}
+
+/* — SOFT TYPOGRAPHY — */
+[data-act="soft"] .sg-text-body-large {
+  font-family: var(--act-font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  color: var(--act-ink);
+}
+
+[data-act="soft"] .sg-text-body-small {
+  font-family: var(--act-font-body);
+  line-height: 1.6;
+  color: var(--act-ink);
+}
+
+[data-act="soft"] .sg-text-body-mini {
+  font-family: var(--act-font-body);
+  color: var(--act-ink);
+  opacity: 0.7;
+}
+
+/* — NO HARD BORDERS — */
+[data-act="soft"] .grey-layout {
+  border: none;
+}
+
+/* ==========================================================================
+   ACT IV — MINIMALIST WHITE (light.html + light2.html + footer.html)
+   Pure / Clear / Arrival
+   ========================================================================== */
+[data-act="pure"] {
+  --act-bg: #FFFFFF;
+  --act-ink: #0A0A0A;
+  --act-muted: #6B6B6B;
+  --act-rule: 1px solid #E8E8E8;
+  --act-font-display: 'PPNeueMontreal-Thin', var(--ppnm);
+  --act-font-body: 'PPNeueMontreal-Book', var(--ppnm);
+}
+
+[data-act="pure"] {
+  background-color: var(--act-bg);
+  color: var(--act-ink);
+}
+
+/* — HAIRLINE RULES — */
+[data-act="pure"] .shift-section {
+  border-top: var(--act-rule);
+  border-bottom: var(--act-rule);
+}
+
+[data-act="pure"] .care-section {
+  border-bottom: var(--act-rule);
+}
+
+[data-act="pure"] .sticky-title-wrapper {
+  border-top: var(--act-rule);
+  border-bottom: var(--act-rule);
+}
+
+[data-act="pure"] .footer-layout {
+  border-top: var(--act-rule);
+}
+
+/* — THIN DISPLAY TYPE — */
+[data-act="pure"] .sg-text-body-huge,
+[data-act="pure"] .sg-text-display,
+[data-act="pure"] .sg-text-display-italic {
+  font-family: var(--act-font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--act-ink);
+  text-transform: none;
+}
+
+[data-act="pure"] .sg-text-body-large {
+  font-family: var(--act-font-body);
+  font-weight: 400;
+  font-size: 2.5em;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--act-ink);
+}
+
+[data-act="pure"] .sg-text-body-base,
+[data-act="pure"] .sg-text-body-small,
+[data-act="pure"] .sg-text-body-mini {
+  font-family: var(--act-font-body);
+  color: var(--act-ink);
+}
+
+[data-act="pure"] .sg-text-body-mini {
+  color: var(--act-muted);
+}
+
+/* — KILL ALL SHADOWS, BORDERS, ACCENTS — */
+[data-act="pure"] .peace-image_wrapper,
+[data-act="pure"] .shift-text_block,
+[data-act="pure"] .care-text_wrapper,
+[data-act="pure"] .footer-text_wrapper {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+[data-act="pure"] .shift-text_block {
+  background: transparent !important;
+  color: var(--act-ink) !important;
+  height: auto;
+  justify-content: flex-start;
+}
+
+[data-act="pure"] .pixel-transition-padding {
+  background: var(--act-bg);
+}
+
+[data-act="pure"] .light-layout {
+  background: var(--act-bg);
+}
+
+/* — TEXT LINKS (no boxes) — */
+[data-act="pure"] .btn-text {
+  font-family: var(--act-font-body);
+  color: var(--act-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+[data-act="pure"] .btn-text:hover {
+  color: var(--act-bg);
+  background: var(--act-ink);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   ACT BACKGROUND OVERRIDES
+   ========================================================================== */
+[data-act="industrial"] .hero-section {
+  background-color: var(--act-bg);
+}
+
+[data-act="neo"][data-theme-section="dark"] .dark-section {
+  background-color: var(--act-bg);
+}
+
+[data-act="neo"][data-theme-section="blue"] .blue-section,
+[data-act="neo"][data-theme-section="blue"] .peace-section {
+  background-color: var(--act-bg);
+}
+
+[data-act="soft"] .grey-section {
+  background-color: var(--act-bg);
+}
+
+[data-act="neo-soft"] .delirious-section,
+[data-act="neo-soft"] .team-bridge-section {
+  background-color: var(--act-bg);
+}
+
+[data-act="pure"] .light-section,
+[data-act="pure"] .grey-section-footer,
+[data-act="pure"] .footer-layout {
+  background-color: var(--act-bg);
+}
+
+/* ==========================================================================
+   INTER-ACT TRANSITION BRIDGES (GSAP-ready)
+   ========================================================================== */
+[data-transition="hazard-flash"] {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: #E61919;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+[data-transition="hazard-flash"].active {
+  opacity: 1;
+}
+
+[data-transition="clip-reveal"] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--ease-act);
+}
+
+[data-transition="clip-reveal"].active {
+  clip-path: inset(0 0% 0 0);
+}
+
+[data-transition="soften-shadows"] {
+  transition: box-shadow var(--ease-act), border-radius var(--ease-act), border-color var(--ease-act);
+}
+
+/* ==========================================================================
+   DEBUG — show active act label
+   ========================================================================== */
+[data-act-debug] [data-act]::before {
+  content: attr(data-act);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  font-family: var(--ppnm);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  background: var(--act-ink);
+  color: var(--act-bg);
+  padding: 0.5em 1em;
+  pointer-events: none;
+  opacity: 0.5;
+}
